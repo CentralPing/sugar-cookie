@@ -1,0 +1,59 @@
+# @CentralPing/sugar-cookie
+
+[![Build Status](https://travis-ci.org/CentralPing/sugar-cookie.svg?branch=master)](https://travis-ci.org/CentralPing/sugar-cookie)
+[![Coverage Status](https://coveralls.io/repos/github/CentralPing/sugar-cookie/badge.svg)](https://coveralls.io/github/CentralPing/sugar-cookie)
+[![Dependency Status](https://david-dm.org/CentralPing/sugar-cookie.svg)](https://david-dm.org/CentralPing/sugar-cookie)
+[![Greenkeeper Status](https://badges.greenkeeper.io/CentralPing/sugar-cookie.svg)](https://greenkeeper.io/)
+[![Known Vulnerabilities](https://snyk.io/test/github/centralping/sugar-cookie/badge.svg)](https://snyk.io/test/github/centralping/sugar-cookie)
+
+A slightly opinionated browser cookie parser.
+
+## Backgound
+JavaScript can access and modify HTTP cookies through the [`document.cookie`](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie) interface. Unfortunately it is a bit limited in accessing individual cookies. `sugar-cookie` is effectively a wrapper around the native interface to aid with using this interface with a little sugar on top.
+
+### A Note on retreiving and storing cookies through `document.cookie`.
+
+[RFC2109](https://tools.ietf.org/html/rfc2109) states cookies are unique based on their name, domain and path. The `document.cookie` interface returns all accessible cookies (name, value pairs) by the domain and path matching rules. This creates a situation where a cookie name could be shared between multiple cookies. Therefore when setting a value, proper care should be taken to assign the cookie to the correct domain and path to avoid either creating a new cookie or updating an incorrect one.
+
+## Installation
+
+`npm i --save https://github.com/CentralPing/sugar-cookie`
+
+## API Reference
+
+{{#module name="sugarCookie"~}}
+{{>body~}}
+{{>members~}}
+{{/module}}
+
+## Examples
+
+### For Cookie Parsing
+
+```js
+// From path '/'
+sugarCookie.put('foo', 'hello');
+const fooCookie = sugarCookie.get('foo'); // 'hello'
+
+// From path '/'
+sugarCookie.put('foo', {say: 'hello'}, {path: '/bar'});
+const fooCookieFromBar = sugarCookie.get('foo', {path: '/bar'}); // {say: 'hello'}
+
+// From path '/'
+const cookies = sugarCookie.getAll(); // {foo: 'hello'}
+
+// From path '/bar'
+const cookies = sugarCookie.getAll(); // {foo: [{say: 'hello'}, 'hello']}
+
+// From path '/'
+sugarCookie.remove('foo');
+const fooCookie = sugarCookie.get('foo'); // undefined
+
+// From path '/'
+sugarCookie.remove('foo', {path: '/bar'});
+const cookies = sugarCookie.getAll(); // {}
+```
+
+## License
+
+MIT
