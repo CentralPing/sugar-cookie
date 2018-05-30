@@ -9,11 +9,15 @@
 A slightly opinionated browser cookie parser.
 
 ## Backgound
-JavaScript can access and modify HTTP cookies through the [`document.cookie`](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie) interface. Unfortunately it is a bit limited in accessing individual cookies. `sugar-cookie` is effectively a wrapper around the native interface to aid with using this interface with a little sugar on top.
+JavaScript can access and modify HTTP cookies through the [`document.cookie`](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie) interface. Unfortunately it is a bit limited in accessing individual cookies. `sugar-cookie` is effectively a wrapper around the native interface to aid with this and adds a little sugar on top as well.
 
-### A Note on retreiving and storing cookies through `document.cookie`.
+### Motivation
+
+#### A Note on retreiving and storing cookies through `document.cookie`:
 
 [RFC2109](https://tools.ietf.org/html/rfc2109) states cookies are unique based on their name, domain and path. The `document.cookie` interface returns all accessible cookies (name, value pairs) by the domain and path matching rules. This creates a situation where a cookie name could be shared between multiple cookies. Therefore when setting a value, proper care should be taken to assign the cookie to the correct domain and path to avoid either creating a new cookie or updating an incorrect one.
+
+Since cookie names can match multiple cookies depending on domain/path matching most browsers will return cookies in order of specifity of the matches. Due to this possibility, if a name matches multiple cookies then it will be returned as an array of values in the order provided by the browser.
 
 ## Installation
 
