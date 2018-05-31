@@ -57,14 +57,14 @@ const cookies = getAll();
 ```
 <a name="module_sugarCookie..get"></a>
 
-### sugarCookie~get([name], [conv]) ⇒ <code>\*</code>
+### sugarCookie~get([name], [conv]) ⇒ <code>Array</code>
 Get the value(s) for a cookie matching the provided name and the
 domain/path of the current page. Values will be automatically parsed
 by JSON by default. Cookie values are returned as arrays due to names
 being non-unique for different hosts/paths.
 
 **Kind**: inner method of [<code>sugarCookie</code>](#module_sugarCookie)  
-**Returns**: <code>\*</code> - A parsed (if applicable) value or array of values.  
+**Returns**: <code>Array</code> - An array of parsed (if applicable) values.  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
