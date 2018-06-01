@@ -9,17 +9,18 @@
   },
   "scripts": {
     "lint": "eslint \"${INIT_CWD}/**/*.js\"",
-    "pretest": "npm run lint",
-    "test": "jest",
+    "coverage": "npm test -- --coverage",
     "watch": "npm test -- --watch --coverage",
     "docs": "jsdoc2md -t docs/readme.hbs --files lib/*.js > README.md",
-    "prepublishOnly": "npm test -- --coverage",
-    "publish": "coveralls < coverage/lcov.info",
-    "preversion": "npm test -- --coverage && npm run docs",
-    "version": "changelog > ./CHANGELOG.md",
-    "postversion": "git add CHANGELOG.md README.md && git push && git push --tags",
     "build:raw": "webpack --mode development --module-bind js=babel-loader \"${INIT_CWD}/lib/index.js\" --output \"${INIT_CWD}/dist/sugar-cookie.js\" --output-library=sugarCookie --output-library-target=umd",
-    "build:min": "webpack --mode production --module-bind js=babel-loader \"${INIT_CWD}/lib/index.js\" --output \"${INIT_CWD}/dist/sugar-cookie.min.js\" --output-library=sugarCookie --output-library-target=umd"
+    "build:min": "webpack --mode production --module-bind js=babel-loader \"${INIT_CWD}/lib/index.js\" --output \"${INIT_CWD}/dist/sugar-cookie.min.js\" --output-library=sugarCookie --output-library-target=umd",
+    "pretest": "npm run lint",
+    "test": "jest",
+    "preversion": "npm run coverage && npm run docs",
+    "version": "changelog > ./CHANGELOG.md",
+    "postversion": "git add CHANGELOG.md && git commit -m \"chore(changelog): update changelog\" && git add README.md && git commit -m \"chore(readme): update docs\" && git add package.json && git commit -m \"chore(package): version bump\" && git tag -a -m \"Release ${npm_package_version}\"",
+    "prepublishOnly": "npm run build:raw && npm run build:min",
+    "publish": "coveralls < coverage/lcov.info"
   },
   "repository": {
     "type": "git",
