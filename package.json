@@ -1,8 +1,8 @@
 {
-  "name": "sugar-cookie",
+  "name": "@centralping/sugar-cookie",
   "version": "0.0.1",
   "description": "A slightly opinionated browser cookie parser.",
-  "main": "lib/index.js",
+  "browser": "dist/sugar-cookie.min.js",
   "module": "lib/main.js",
   "engines": {
     "node": ">=8"
@@ -12,11 +12,14 @@
     "pretest": "npm run lint",
     "test": "jest",
     "watch": "npm test -- --watch --coverage",
+    "docs": "jsdoc2md -t docs/readme.hbs --files lib/*.js > README.md",
     "prepublishOnly": "npm test -- --coverage",
     "publish": "coveralls < coverage/lcov.info",
-    "docs": "jsdoc2md -t docs/readme.hbs --files lib/*.js > README.md",
-    "build:dev": "webpack --mode development --module-bind js=babel-loader \"${INIT_CWD}/lib/index.js\" --output \"${INIT_CWD}/dist/sugar-cookie.js\" --output-library=sugarCookie --output-library-target=umd",
-    "build:prod": "webpack --mode production --module-bind js=babel-loader \"${INIT_CWD}/lib/index.js\" --output \"${INIT_CWD}/dist/sugar-cookie.min.js\" --output-library=sugarCookie --output-library-target=umd"
+    "preversion": "npm test -- --coverage && npm run docs",
+    "version": "changelog > ./CHANGELOG.md",
+    "postversion": "git add CHANGELOG.md README.md && git push && git push --tags",
+    "build:raw": "webpack --mode development --module-bind js=babel-loader \"${INIT_CWD}/lib/index.js\" --output \"${INIT_CWD}/dist/sugar-cookie.js\" --output-library=sugarCookie --output-library-target=umd",
+    "build:min": "webpack --mode production --module-bind js=babel-loader \"${INIT_CWD}/lib/index.js\" --output \"${INIT_CWD}/dist/sugar-cookie.min.js\" --output-library=sugarCookie --output-library-target=umd"
   },
   "repository": {
     "type": "git",
@@ -48,6 +51,7 @@
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jest": "^21.15.2",
     "eslint-plugin-node": "^6.0.1",
+    "generate-changelog": "^1.7.1",
     "jest": "^23.0.0",
     "jest-environment-jsdom-global": "^1.0.3",
     "jsdoc-to-markdown": "^4.0.1",

@@ -1,0 +1,7 @@
+docs
+lib
+coverage
+.babelrc
+.coveralls.yml
+.eslintrc
+.travis.yml
