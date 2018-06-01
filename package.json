@@ -18,7 +18,7 @@
     "test": "jest",
     "preversion": "npm run coverage && npm run docs",
     "version": "changelog > ./CHANGELOG.md",
-    "postversion": "git add CHANGELOG.md && git commit -m \"chore(changelog): update changelog\" && git add README.md && git commit -m \"chore(readme): update docs\" && git add package.json && git commit -m \"chore(package): version bump\" && git tag -a -m \"Release ${npm_package_version}\"",
+    "postversion": "git add CHANGELOG.md && git commit -m \"chore(changelog): update changelog\" && git add README.md && git commit -m \"chore(readme): update docs\" && git add package.json && git commit -m \"chore(package): version bump\" && git tag -a \"v${npm_package_version}\" -m \"Deploy release\"",
     "prepublishOnly": "npm run build:raw && npm run build:min",
     "publish": "coveralls < coverage/lcov.info"
   },
