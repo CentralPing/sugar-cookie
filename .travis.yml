@@ -14,5 +14,3 @@ deploy:
     tags: true
   api_key:
     secure: "$NPM_API_TOKEN"
-before_deploy:
-- npm run build:raw && npm run build:min
