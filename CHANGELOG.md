@@ -1,3 +1,11 @@
+#### v0.2.1 (2018-06-02)
+
+##### Chores
+
+* **package:**  use default file output for changelog ([5fff93a6](https://github.com/CentralPing/sugar-cookie/commit/5fff93a6e10744802abc132c8e972922af86c2b5))
+* **travis:**  prevent stashing build artifacts ([2d79d73f](https://github.com/CentralPing/sugar-cookie/commit/2d79d73fe41954d9ed9a32c2fabd122f0b7be366))
+* **changelog:**  update changelog for v0.2.0 ([112e21ce](https://github.com/CentralPing/sugar-cookie/commit/112e21cee7af61c12ca13722b8080f1560630252))
+
 #### v0.2.0 (2018-06-02)
 
 ##### Chores
