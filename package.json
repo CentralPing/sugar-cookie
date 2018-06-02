@@ -1,6 +1,6 @@
 {
   "name": "@centralping/sugar-cookie",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A slightly opinionated browser cookie parser.",
   "browser": "dist/sugar-cookie.min.js",
   "module": "lib/main.js",
@@ -9,18 +9,16 @@
   },
   "scripts": {
     "lint": "eslint \"${INIT_CWD}/**/*.js\"",
-    "coverage": "npm test -- --coverage",
     "watch": "npm test -- --watch --coverage",
     "docs": "jsdoc2md -t docs/readme.hbs --files lib/*.js > README.md",
     "build:raw": "webpack --mode development --module-bind js=babel-loader \"${INIT_CWD}/lib/index.js\" --output \"${INIT_CWD}/dist/sugar-cookie.js\" --output-library=sugarCookie --output-library-target=umd",
     "build:min": "webpack --mode production --module-bind js=babel-loader \"${INIT_CWD}/lib/index.js\" --output \"${INIT_CWD}/dist/sugar-cookie.min.js\" --output-library=sugarCookie --output-library-target=umd",
     "pretest": "npm run lint",
     "test": "jest",
-    "preversion": "npm run coverage && npm run docs",
-    "version": "changelog > ./CHANGELOG.md",
-    "postversion": "git commit -m \"chore(changelog): update changelog for v${npm_package_version}\" CHANGELOG.md && git commit -m \"chore(readme): update docs for v${npm_package_version}\" README.md && git commit -m \"chore(package): deployment version bump\" package.json && git tag -a \"v${npm_package_version}\" -m \"Deployment release\"",
-    "prepublishOnly": "npm run build:raw && npm run build:min",
-    "publish": "coveralls < coverage/lcov.info"
+    "preversion": "npm test -- --coverage",
+    "version": "changelog -s v${npm_package_version} > CHANGELOG.md",
+    "postversion": "git add CHANGELOG.md && git commit -m \"chore(changelog): update changelog for v${npm_package_version}\" && coveralls < coverage/lcov.info",
+    "prepare": "npm run build:raw && npm run build:min"
   },
   "repository": {
     "type": "git",
@@ -52,7 +50,7 @@
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jest": "^21.15.2",
     "eslint-plugin-node": "^6.0.1",
-    "generate-changelog": "^1.7.1",
+    "generate-changelog": "git+https://github.com/JasonCust/generate-changelog.git",
     "jest": "^23.0.0",
     "jest-environment-jsdom-global": "^1.0.3",
     "jsdoc-to-markdown": "^4.0.1",
