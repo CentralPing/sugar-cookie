@@ -1,6 +1,6 @@
 {
   "name": "@centralping/sugar-cookie",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A slightly opinionated browser cookie parser.",
   "browser": "dist/sugar-cookie.min.js",
   "module": "lib/main.js",
