@@ -8,6 +8,7 @@ notifications:
 deploy:
   provider: npm
   email: jason@centralping.com
+  skip_cleanup: false
   on:
     repo: CentralPing/sugar-cookie
     branch: master
