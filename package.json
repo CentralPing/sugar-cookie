@@ -1,7 +1,9 @@
 {
   "name": "@centralping/sugar-cookie",
   "version": "0.1.0",
-  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "A slightly opinionated browser cookie parser.",
   "browser": "dist/sugar-cookie.min.js",
   "module": "lib/main.js",
