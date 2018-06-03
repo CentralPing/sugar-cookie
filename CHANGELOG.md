@@ -1,3 +1,9 @@
+#### v0.3.0 (2018-06-03)
+
+##### Chores
+
+* **package:**  include tags push for post-version ([118d56ce](https://github.com/CentralPing/sugar-cookie/commit/118d56ce95360b0055feb3c8606fb18d1875ef39))
+
 #### v0.2.1 (2018-06-02)
 
 ##### Chores
