@@ -17,7 +17,7 @@
     "test": "jest",
     "preversion": "npm test -- --coverage",
     "version": "changelog -s v${npm_package_version} && git add CHANGELOG.md && git commit -m \"chore(changelog): update changelog for v${npm_package_version}\"",
-    "postversion": "coveralls < coverage/lcov.info",
+    "postversion": "coveralls < coverage/lcov.info && git push && git push --tags",
     "prepare": "npm run build:raw && npm run build:min"
   },
   "repository": {
