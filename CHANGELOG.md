@@ -1,3 +1,9 @@
+#### v0.3.1 (2018-06-03)
+
+##### Chores
+
+* **travis:**  keep assets for build ([2be9752f](https://github.com/CentralPing/sugar-cookie/commit/2be9752fe0dfe9e897f41c54ab877fe3df496fc7))
+
 #### v0.3.0 (2018-06-03)
 
 ##### Chores
