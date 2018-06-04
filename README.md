@@ -31,7 +31,7 @@ What about pre-existing cookie values? The JSON parser would simply return them 
 
 ## Installation
 
-`npm i --save https://github.com/CentralPing/sugar-cookie`
+`npm i --save @centralping/sugar-cookie`
 
 ## API Reference
 
