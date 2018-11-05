@@ -58,7 +58,7 @@
     "jest": "^23.0.0",
     "jest-environment-jsdom-global": "^1.0.3",
     "jsdoc-to-markdown": "^4.0.1",
-    "webpack": "^4.20.2",
+    "webpack": "^4.25.1",
     "webpack-cli": "^3.0.1"
   },
   "jest": {
