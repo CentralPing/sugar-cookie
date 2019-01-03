@@ -59,7 +59,7 @@
     "jest-environment-jsdom-global": "^1.0.3",
     "jsdoc-to-markdown": "^4.0.1",
     "webpack": "^4.20.2",
-    "webpack-cli": "^3.0.1"
+    "webpack-cli": "3.1.2"
   },
   "jest": {
     "verbose": true,
