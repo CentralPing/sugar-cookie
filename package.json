@@ -39,7 +39,7 @@
   },
   "homepage": "https://github.com/CentralPing/sugar-cookie",
   "dependencies": {
-    "esm": "^3.0.84"
+    "esm": "3.0.84"
   },
   "peerDependencies": {},
   "devDependencies": {
