@@ -59,7 +59,7 @@
     "generate-changelog": "git+https://github.com/JasonCust/generate-changelog.git",
     "jest": "^23.6.0",
     "jest-environment-jsdom-global": "^1.0.3",
-    "jsdoc-to-markdown": "^4.0.1",
+    "jsdoc-to-markdown": "^5.0.1",
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1"
   },
